@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Seasons xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Player.xsd">
+	
+	
+	<Season>
+		
+		<Name>Meow 1</Name>
+		<Rank>
+			<Name>Grandmaster</Name>
+			<Player>
+				<DisplayName>Nebula</DisplayName>
+				<PlayerID>1</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		<Rank>
+			<Name>Master</Name>
+			<Player>
+				<DisplayName>Adafheyesh</DisplayName>
+				<PlayerID>3</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		<Rank>
+			<Name>Ruby</Name>
+			<Player>
+				<DisplayName>Wrestler</DisplayName>
+				<PlayerID>5</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		<Rank>
+			<Name>Emerald</Name>
+			<Player>
+				<DisplayName>Scout</DisplayName>
+				<PlayerID>7</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		<Rank>
+			<Name>Sapphire</Name>
+			<Player>
+				<DisplayName>Calamay</DisplayName>
+				<PlayerID>9</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		<Rank>
+			<Name>Topaz</Name>
+			<Player>
+				<DisplayName>OneHoppingBunny</DisplayName>
+				<PlayerID>12</PlayerID>
+			</Player>
+			<!-- Add more players as needed -->
+		</Rank>
+		
+	</Season>
+
+	
+</Seasons>

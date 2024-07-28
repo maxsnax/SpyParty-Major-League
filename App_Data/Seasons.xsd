@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Thomas Martin -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Definition of a simple type for display name -->
+	<xs:simpleType name="string">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Definition of the root element -->
+	<xs:element name="Seasons">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Season" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<!-- Name of the season -->
+							<xs:element name="Name" type="string"/>
+							<!-- Definition of ranks within a season -->
+							<xs:element name="Rank" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Name of the rank -->
+										<xs:element name="Name" type="string"/>
+										<!-- Definition of players within a rank -->
+										<xs:element name="Player" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<!-- DisplayName element -->
+													<xs:element name="DisplayName" type="string"/>
+													<!-- status element-->
+													<xs:element name="Status" type="string"></xs:element>
+													<!-- PlayerID element -->
+													<xs:element name="PlayerID" type="string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

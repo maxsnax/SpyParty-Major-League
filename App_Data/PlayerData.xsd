@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema1"
+    targetNamespace="http://tempuri.org/XMLSchema1.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema1.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema1.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+	<!-- Definition of a simple type for display name -->
+	<xs:simpleType name="string">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Definition of a simple type for display name -->
+	<xs:simpleType name="int">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+
+	<!-- Definition of the root element -->
+	<xs:element name="Players">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- The "Name" element can appear multiple times -->
+				<xs:element name="Name" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Season" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Sub-elements under "Name" -->
+										<xs:element name="Sniper">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TotalGames" type="int"/>
+													<xs:element name="Wins" type="int"/>
+													<xs:element name="Losses" type="int"/>
+													<xs:element name="CivilianShot" type="int"/>
+													<xs:element name="SpyShot" type="int"/>
+													<xs:element name="Timeout" type="int"/>
+													<xs:element name="MissionWin" type="int"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Spy">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TotalGames" type="int"/>
+													<xs:element name="Wins" type="int"/>
+													<xs:element name="Losses" type="int"/>
+													<xs:element name="CivilianShot" type="int"/>
+													<xs:element name="SpyShot" type="int"/>
+													<xs:element name="Timeout" type="int"/>
+													<xs:element name="MissionWin" type="int"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+</xs:schema>

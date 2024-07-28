@@ -1,0 +1,253 @@
+﻿/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .body-content {
+        padding: 0;
+    }
+}
+
+
+/*  =====================================================================
+    Scoreboard sheets
+    ===================================================================== */
+.master-table {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #000000;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.season-header {
+    padding: 10px;
+    background: linear-gradient(to right, #e94fa2, #b3fff3);
+    font-size: 20px;
+    border-style: solid;
+    font-weight: bold;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.season-table {
+    font-size: 16px;
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    width: 100%;
+    background-color: #f3f3f3;
+    padding-bottom: 15px;
+}
+
+.empty-row {
+    height: 50px;
+    background: transparent;
+}
+
+.table-container {
+    border: 1px solid #ccc;
+    border-color: black;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.rank-table {
+    color: black;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.rank-header-row {
+    font-size: 30px;
+    border-style: solid;
+    font-weight: bold;
+    border-width: 1px;
+    text-align: left;
+}
+
+.rank-header-row .Grandmaster-header {
+    background: #ffa500;
+}
+
+.Grandmaster {
+    background: linear-gradient(to bottom, #ffa500, #ffc04c);
+}
+
+.rank-header-row .Master-header {
+    background: #00008b;
+}
+
+.Master {
+    background: linear-gradient(to bottom, #00008b, #3b3bbd);
+}
+
+.rank-header-row .Ruby-header {
+    background: #9b111e;
+}
+
+.Ruby {
+    background: linear-gradient(to bottom, #9b111e, #b14550);
+}
+
+.rank-header-row .Emerald-header {
+    background: #42c56e;
+}
+
+.Emerald {
+    background: linear-gradient(to bottom, #42c56e, #70d893);
+}
+
+.rank-header-row .Sapphire-header {
+    background: #0f52ba;
+}
+
+.Sapphire {
+    background: linear-gradient(to bottom, #0f52ba, #3f6eb8);
+}
+
+.rank-header-row .Topaz-header {
+    background: #feb651;
+}
+
+.Topaz {
+    background: linear-gradient(to bottom, #feb651, #ffc87c);
+}
+
+.rank-table .Grandmaster {
+    background: linear-gradient(to bottom, #ffa500, #ffd68c);
+}
+
+.rank-table .Master {
+    background: linear-gradient(to bottom, #3b3bbd, #6161fa);
+}
+
+.rank-table .Ruby {
+    background: linear-gradient(to bottom, #b14550, #f08790);
+}
+
+.rank-table .Emerald {
+    background: linear-gradient(to bottom, #70d893, #b1ffcb);
+}
+
+.rank-table .Sapphire {
+    background-color: #3f6eb8;
+}
+
+.rank-table .Topaz {
+    background-color: #ffc87c;
+}
+
+.stat-column {
+    text-align: center;
+    width: 10%;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+}
+
+.center-column {
+    text-align: center;
+    width: 10%;
+    font-size: 16px;
+}
+
+.player-row {
+    font-size: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    background-color: white;
+    height: 50px;
+}
+
+.name-cell {
+    width: 50%;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/*  =====================================================================
+    Replay sheets
+    ===================================================================== */
+.match-table {
+    background-color: #D9D9BF;
+    border: solid;
+    border-width: 1px;
+    width: 100%;
+}
+
+.upload-row {
+    padding: 5px 5px 5px 10px;
+    background-color: #cfe2f3;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkred;
+}
+
+
+.file-table-row {
+    padding: 10px 10px 0px 10px;
+    background-color: #ffffff;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkred;
+}
+
+
+.match-folder-row {
+    padding: 10px 10px 10px 10px;
+    background-color: #b3fff3;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+
+.replay-row {
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    font-size: 16px;
+    border-style: groove;
+    border-width: 1px;
+    border-color: black;
+    text-align: left;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+
+.th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+
+input.larger-checkbox {
+    height: 40px;
+}
