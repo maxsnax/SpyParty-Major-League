@@ -129,6 +129,7 @@
     <Content Include="App_Data\PlayerData.xml" />
     <Content Include="App_Data\Seasons - Template.xml" />
     <Content Include="App_Data\Seasons.xml" />
+    <Content Include=".gitignore" />
     <Content Include="Images\floorplans\Aquarium.png" />
     <Content Include="Images\floorplans\Balcony.png" />
     <Content Include="Images\floorplans\Ballroom.png" />
