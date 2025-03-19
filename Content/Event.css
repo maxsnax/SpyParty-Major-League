@@ -1,0 +1,97 @@
+﻿/* Ensure styles only apply to this page */
+.events-create-new {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Wrapper to stack everything in a single column */
+.event-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center everything horizontally */
+    width: 100%;
+    max-width: 500px; /* Adjust as needed */
+    margin: 0 auto; /* Center the entire container */
+}
+
+/* Ensure each section takes full width */
+.new-event-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(200, 200, 200, 0.8);
+    text-align: center;
+    border: 1px solid black;
+    width: 100%; /* Make sure it fills the container */
+    margin-bottom: 10px; /* Add spacing between elements */
+}
+
+/* Error label style */
+.label-red {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Label styling */
+.label-white {
+    font-size: 20px;
+    color: #33337f;
+}
+
+/* Input styling */
+.textbox {
+    background: #c9c6c5;
+    border: 1px solid black;
+    height: 30px;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.panel {
+    margin: 0;
+    padding: 0;
+}
+
+.edit-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-start;
+
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    flex-wrap: wrap;
+
+    background-color: transparent;
+}
+
+.edit-header {
+    align-self: flex-start;
+    max-width: 20%;
+
+    font-size: 40px;
+    color: #a8dff4;
+    background-color: transparent;
+
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+.edit-button {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 40px;
+    color: #246ddb;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}

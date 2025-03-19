@@ -15,25 +15,39 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="~/Content/Site.css" rel="stylesheet"  />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+    <style>
+    body {
+        font-family: "Lucida Console", Monaco, monospace !important;
+        color: #535352 !important;
+    }
+
+    .navbar {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .navbar a {
+        color: black !important;
+    }
+
+    .navbar .nav-link:hover {
+        color: gray !important;
+    }
+</style>
+
 </head>
-<body>
+<body class="<%= EnableDynamicBackground ? "dynamic-bg" : "custom-bg-color" %>">
+    <div id="background-div" style="display: none;"></div> <!-- Background for dynamic pages -->
+
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
@@ -48,30 +62,54 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Scoreboard">Scoreboard</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Players">Players</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Events">Events</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Upload">Upload</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-            
-        <style>
-          .custom-bg-color {
-            background-color: #6bc7dc; /* Banner background color */
-          }
-        </style>
 
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - SpyParty Major League</p>
-            </footer>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
+
+        <footer class="footer"></footer>
     </form>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+
+    <script type="text/javascript">
+        var enableBackground = <%= EnableDynamicBackground.ToString().ToLower() %>;
+    var images = <%= string.IsNullOrEmpty(ImageListJson) ? "[]" : ImageListJson %>; // Ensure valid JSON
+
+        if (enableBackground && images.length > 0) {
+            var backgroundDiv = document.getElementById("background-div");
+            backgroundDiv.style.display = "block";
+
+            var isZoomedIn = false;
+
+            function changeBackgroundImage() {
+                var randomIndex = Math.floor(Math.random() * images.length);
+                var newImage = 'url("' + images[randomIndex] + '")';
+
+                backgroundDiv.style.animation = "none";
+                backgroundDiv.style.transform = isZoomedIn ? "scale(1.1)" : "scale(1)";
+                backgroundDiv.style.transition = "background-image 1s ease-in-out";
+                backgroundDiv.style.backgroundImage = newImage;
+
+                setTimeout(startZoomAnimation, 1000);
+            }
+
+            function startZoomAnimation() {
+                backgroundDiv.style.animation = isZoomedIn ? "zoomOut 10s forwards ease-in-out" : "zoomIn 10s forwards ease-in-out";
+                isZoomedIn = !isZoomedIn;
+            }
+
+            setInterval(changeBackgroundImage, 10000);
+            changeBackgroundImage();
+        }
+    </script>
+
 </body>
+
 </html>
