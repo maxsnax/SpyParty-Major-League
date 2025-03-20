@@ -1,4 +1,5 @@
-﻿using Microsoft.Ajax.Utilities;
+﻿using AjaxControlToolkit;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,6 +34,9 @@ namespace SML.Pages {
                 EventNameLabel.Text = $"{eventName} not found.";
             }
             else {
+
+                // Temporarily disabling this to test edit events 
+                ///*
                 _eventName = eventName;
                 string authorizedEvent = HttpContext.Current.Session["AuthorizedEvent"] as string ?? string.Empty;
 
@@ -47,6 +51,7 @@ namespace SML.Pages {
                 EventPasswordContainer.Visible = false;
                 EventNameLabel.Text = $"{eventName}";
                 ViewState["eventData"] = null;
+                //*/
 
                 PopulateAuthenticatedUI();
             }
@@ -116,19 +121,73 @@ namespace SML.Pages {
 
         public void Submit_EditDivision(object sender, EventArgs e) {
             System.Diagnostics.Debug.WriteLine("Edit Division Click");
+            ShowModalPopup();
         }
 
         public void Submit_EditPlayers(object sender, EventArgs e) {
             System.Diagnostics.Debug.WriteLine("Edit Players Click");
+            ShowModalPopup();
         }
 
         public void Submit_EditSettings(object sender, EventArgs e) {
             System.Diagnostics.Debug.WriteLine("Edit Settings Click");
+            ShowModalPopup();
         }
 
         // Navigates back to normal view events page
         public void Submit_Quit(object sender, EventArgs e) {
             System.Diagnostics.Debug.WriteLine("Quit Click");
+            ShowModalPopup();
+            Response.Redirect("/Pages/Events?season=" + HttpUtility.UrlEncode(_eventName));
+        }
+
+        public void ShowModalPopup() {
+            Panel modalPanel = Build_Panel();
+            modalPanel.ID = "ModalPanel";
+            modalPanel.Attributes.Add("class", "modal-popup");
+
+            ModalPopupExtender modalPopupExtender = new ModalPopupExtender {
+                ID = "ModalPopupExtender",
+                TargetControlID = "HiddenTargetButton",
+                PopupControlID = modalPanel.ID,
+                BackgroundCssClass = "modal-background",
+                DropShadow = true
+            };
+
+            this.Form.Controls.Add(modalPanel);
+            this.Form.Controls.Add(modalPopupExtender);
+
+            Button hiddenTargetButton = new Button {
+                ID = "HiddenTargetButton",
+                CssClass = "hidden-button"
+            };
+
+            this.Form.Controls.Add(hiddenTargetButton);
+
+            modalPopupExtender.Show();
+        }
+
+        public Panel Build_Panel() {
+            // Build overall container for object interactions
+            Panel panel = new Panel {
+                CssClass = "container border d-flex flex-column"
+            };
+
+            Label title = new Label();
+            title.Text = "Title Label";
+
+            Button ConfirmButton = new Button();
+            ConfirmButton.Text = "Confirm";
+            ConfirmButton.Attributes["style"] = "background-color: green";
+            Button CancelButton = new Button();
+            CancelButton.Text = "Cancel";
+            CancelButton.Attributes["style"] = "background-color: red";
+
+            panel.Controls.Add(title);
+            panel.Controls.Add(ConfirmButton);
+            panel.Controls.Add(CancelButton);
+
+            return panel;
         }
     }
 }
